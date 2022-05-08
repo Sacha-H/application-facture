@@ -1,0 +1,1 @@
+CreateObject("Wscript.Shell").Run "facture.bat",0,True

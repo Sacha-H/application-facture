@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Factures
+{% endblock %}
+
+{% block body %}
+    <h1>Mes Factures</h1>
+	<div class="block">
+		{{ form(form) }}
+		</div>
+		<div class="block">
+			<a href="{{ path('facture_new') }}">
+				<i class="fas fa-address-card"></i>
+			</a>
+		</div>
+		<table class="table">
+			<tbody>
+				{% for facture in factures %}
+					<tr>
+						<td>{{ facture.Nom }}</td>
+						<td>{{ facture.Prenom }}</td>
+                        <td>{{ facture.date ? facture.date|date('d/m/Y') : '' }}</td>
+						<td>{{ facture.Reglement }}</td>
+						<td>
+                        <a href="{{ path('facture_listef', {'id': facture.id}) }}">
+								<i class="fas fa-file-pdf"></i>
+							</a>
+						</td>
+						<td>
+							<a href="{{ path('facture_edit', {'id': facture.id}) }}">
+								<i class="fas fa-wrench"></i>
+							</a>
+						</td>
+						<td>
+							<a href="{{ path('facture_show', {'id': facture.id}) }}">
+								<i class="fas fa-eye"></i>
+							</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="7">Aucune facture à ce nom n'a été trouvé
+
+						</td>
+						<td colspan="5"></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<div class="block">
+			<a href="{{ path('facture_new') }}">
+				<i class="fas fa-address-card"></i>
+			</a>
+		</div>
+	{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Facture
+{% endblock %}
+
+{% block body %}
+	<h2>
+		<a href="{{ path('facture_index') }}">
+			<i class="fas fa-arrow-alt-circle-left"></i>
+		</a>La Facture de
+		{{ facture.Prenom }}
+		{{ facture.Nom }}</h2>
+
+	<table class="tableshow">
+		<tbody>
+			<tr>
+				<th>Date :</th>
+				<td>{{ facture.date ? facture.date|date('d/m/Y') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Réglement :</th>
+				<td>{{ facture.Reglement }}</td>
+			</tr>
+			<tr>
+				<th>Adresse :</th>
+				<td>{{ facture.adresse }}</td>
+			</tr>
+			<tr>
+				<th>Code Postal :</th>
+				<td>{{ facture.postal }}</td>
+			</tr>
+			<tr>
+				<th>Ville :</th>
+				<td>{{ facture.ville }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="block">
+		<div class="iconeshow">
+
+			<a href="{{ path('facture_edit', {'id': facture.id}) }}">
+				<i class="fas fa-wrench"></i>
+			</a>
+
+			<a>
+				{{ include('facture/_delete_form.html.twig') }}
+			</a>
+		</div>
+	</div>
+
+
+{% endblock %}

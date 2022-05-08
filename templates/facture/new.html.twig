@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Facture{% endblock %}
+
+{% block body %}
+    <h2><a href="{{ path('facture_index') }}"><i class="fas fa-arrow-alt-circle-left"></i></a>Faire une nouvelle Facture</h2>
+
+    {{ include('facture/_form.html.twig') }}
+
+{% endblock %}

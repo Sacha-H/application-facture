@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Facture
+{% endblock %}
+
+{% block body %}
+
+
+	<p style="font-size:20px;">Benoit Hirsch<br>
+		Ostéopathe DO<br>
+		N° Adeli 85 00 0460 7<br>
+		4 Av de la Plage<br>
+		85680 La Guérinière<br>
+	</p>
+
+	<h1 style="text-align:center; text-decoration: underline; margin:100px,0;">NOTE D'HONORAIRES</h1>
+
+	<p style="font-size:20px; margin-top:50px">
+		<span style="text-decoration: underline;">Séance d'Ostéopathie du</span>
+		:
+		{{ facture.date ? facture.date|date('d/m/Y') : '' }}</p>
+	<p style="text-decoration: underline; font-size:20px; margin-top:50px">Réglée
+		{{ facture.Reglement }} euros
+	</p>
+
+	<p  style="margin-left:250px; font-size:20px; margin-top:75px">{{ facture.Prenom }}
+		{{ facture.Nom }}<br>
+		{{ facture.adresse }}<br>
+		{{ facture.postal }} {{ facture.ville }}
+	</p>
+<p style="text-aling:center;">
+	<img style="margin-top:100px; margin-left: 180px;" src="{{ asset('images/signature.png')}}" alt="Facture" width="400px;"/>
+    </p>
+	<h4 style="text-align:center; margin-top:100px;">Membre d'un centre de gestion agréé, le réglement par chèque est accepté<h4>
+
+
+		{% endblock %}
